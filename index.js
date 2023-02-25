@@ -2,15 +2,21 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connection = require("./config/db");
-const user = require("./routes/user.route");
-const { authentication } = require("./middlewares/authentication");
+const {userRouter}= require('./routes/user.routes')
+const {profileRouter}=require('./routes/Profile.routes')
+const {authenticate}= require('./middlewares/authentication')
+
+
 const app = express();
-app.get("/",(req,res)=>{
-    res.send("Preeti Raj")
-})
 app.use(express.json());
-app.use(cors());
-app.use("/api", user);
+
+app.get('/',(req,res)=>{
+    res.send("Preeti Raj");
+})
+
+app.use('/user', userRouter)
+// app.use(authenticate)
+app.use('/', profileRouter)
 app.listen(process.env.PORT,async()=>{
     try{
         await connection
