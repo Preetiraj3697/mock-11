@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Preetiraj3697/mock-11#readme",
   "dependencies": {
+    "argon2": "^0.30.3",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
