@@ -33,8 +33,10 @@ exports.login = async (req, res) => {
 }
 
 exports.getProfile = async (req, res) => {
+    console.log(req.body);
     const { user_id } = req.body
     const user = await UserModel.findOne({ _id: user_id })
     const { name, email } = user
+    console.log(user);
     res.send({ name, email });
 }
